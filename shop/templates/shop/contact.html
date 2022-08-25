@@ -1,0 +1,63 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}Contact || {% endblock title %}
+
+{% block body %}
+
+
+<div class="container">
+<div class="row justify-content-center align-item-center">
+    <div class="col-md-6">
+        <h2 class="text-center my-4">Contact Us</h2>
+        <hr>
+    <form action="/shop/contact/" method="post">
+        {% csrf_token %}
+        <div class="row mb-3">
+          <label for="name" class="col-form-label">Full Name</label>
+          <div class="col-sm-12">
+            <input type="text" class="form-control" name='name' id="name">
+          </div>
+        </div>
+        <div class="row mb-3">
+            <label for="email" class="col-form-label">Email</label>
+            <div class="col-sm-12">
+              <input type="email" class="form-control" name='email' id="email">
+            </div>
+          </div>
+        <div class="row mb-3">
+            <label for="phone" class="col-form-label">Phone No.</label>
+            <div class="col-sm-12">
+              <input type="tel" class="form-control" name='phone' id="phone">
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="desc" class="col-form-label">Feel Free To Ask Us Anyhting</label>
+            <div class="col-sm-12">
+            <textarea class="form-control" id="desc" name='desc' rows="6"></textarea>
+          </div>
+
+
+          <!-- <div><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdqqZEdAAAAAN1twzXmDcPKcQ0GBGqEvXECUnb5&amp;co=aHR0cHM6Ly93d3cuY29kZXdpdGhoYXJyeS5jb206NDQz&amp;hl=en&amp;type=image&amp;v=1B_yv3CBEV10KtI2HJ6eEXhJ&amp;theme=light&amp;size=normal&amp;badge=bottomright&amp;cb=278jzjsnas2v" width="304" height="78" role="presentation" name="a-u33uqtevt807" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div> -->
+
+
+
+          <button type="submit" class="btn btn-success my-4">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+
+
+{% endblock body %}
+
+{% block js %}
+<script>
+  {% if send %}
+  alert("Your Message Has Been Send!")
+  document.location  = '/shop'
+  {% endif %}
+</script>
+
+
+{% endblock js %}
